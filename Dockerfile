@@ -10,7 +10,7 @@ USER sdtr
 
 WORKDIR /home/sdtr
 
-# Install required modules as user
+# Install required modules as user.
 COPY --chown=sdtr:sdtr requirements.txt .
 RUN pip install --user --no-cache-dir -r requirements.txt
 

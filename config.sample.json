@@ -1,0 +1,8 @@
+{
+  "client_id": "SAMPLE_ID",
+  "clean_session": null,
+  "userdata": null,
+  "protocol": 4,
+  "transport": "tcp",
+  "reconnect_on_failure": true
+}
