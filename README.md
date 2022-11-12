@@ -10,10 +10,16 @@ MQTT client that publishes random numbers.
 
 * [Docker Engine](https://docs.docker.com/engine/install) or [Docker Desktop](https://docs.docker.com/desktop/)
 
-#### Run
+#### Build
 
 ```shell
 docker build -t sd-client-random .
+```
+
+#### Run
+
+```shell
+docker run --name=sd-client-random sd-client-random
 ```
 
 ### CLI
@@ -35,7 +41,6 @@ pip install -r requirements.txt
 ```
 
 #### Run
-
 
 ```shell
 python ./main.py
