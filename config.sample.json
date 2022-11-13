@@ -1,10 +1,13 @@
 {
-  "host": "mqtt.eclipseprojects.io",
+  "host": "localhost",
   "port": 1883,
   "client_id": "SAMPLE_ID",
   "clean_session": null,
   "userdata": null,
   "protocol": 4,
   "transport": "tcp",
-  "reconnect_on_failure": true
+  "reconnect_on_failure": true,
+  "subscribe_props": {
+    "topic": "number"
+  }
 }
