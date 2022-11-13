@@ -1,7 +1,7 @@
 from typing import Any, Callable
 import paho.mqtt.client as mqtt
 
-from util import BoundedRandom
+from util.bounded_random import BoundedRandom
 
 
 class RandomNumberClient():

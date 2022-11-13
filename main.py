@@ -6,7 +6,7 @@ import os
 from apscheduler.schedulers.background import BackgroundScheduler
 from client.random_number import RandomNumberClient
 
-from util import BoundedRandom
+from util.bounded_random import BoundedRandom
 
 
 DEFAULT_CONFIG_PATH = 'config.json'
