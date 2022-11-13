@@ -232,4 +232,5 @@ dist
 
 # Config files
 config.json
+config.js
 broker/mosquitto.conf

@@ -24,7 +24,7 @@ class BaseClient():
 
     def __get_on_connect(self, subscribe_props: dict) -> Callable[[mqtt.Client, Any, dict, mqtt.ReasonCodes, mqtt.Properties], None]:
         def on_connect(client, userdata, flags, rc, props = None):
-            print(f"Connected with result code {str(rc)}")
+            print(f"Connected with result code {str(rc)} ({mqtt.connack_string(rc)})")
             if (subscribe_props):
                 # Haven't worried about subscribing to multiple topics here as user could easily use the `client` property below if needed.
                 topic = subscribe_props.get('topic')

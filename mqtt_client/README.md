@@ -21,7 +21,7 @@ Create a configuration file, based off of the `config.sample.json` file. By defa
 DOCKER_BUILDKIT=1 docker build -t sd-client-random . && \
   docker run \
     -i \
-    -rm \
+    --rm \
     --net=host \
     --name=sd-client-random \
     -e CONFIG_PATH=path/to/config/file \
