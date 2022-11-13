@@ -1,23 +1,11 @@
-import logo from './logo.svg';
+import rect from './assets/rect.svg'
 import './App.css';
+import SvgView from './components/SvgView/SvgView';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SvgView><img src={rect} alt="Rectangle" /></SvgView>
     </div>
   );
 }
