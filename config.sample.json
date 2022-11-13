@@ -1,4 +1,6 @@
 {
+  "host": "mqtt.eclipseprojects.io",
+  "port": 1883,
   "client_id": "SAMPLE_ID",
   "clean_session": null,
   "userdata": null,

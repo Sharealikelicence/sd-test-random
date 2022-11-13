@@ -15,7 +15,7 @@ Create a configuration file, based off of the `mosquitto.sample.conf` file and n
 For a Unix base host:
 
 ```shell
-docker run -it -p 1883:1883 -p 9001:9001 -v $PWD/mosquitto.conf:/mosquitto/config/mosquitto.conf eclipse-mosquitto
+docker run -it --net=host -v $PWD/mosquitto.conf:/mosquitto/config/mosquitto.conf eclipse-mosquitto
 ```
 
 For a Windows based host `$PWD` must be an absolute path to the `/broker` directory.
