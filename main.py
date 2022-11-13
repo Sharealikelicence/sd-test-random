@@ -10,6 +10,10 @@ from util.bounded_random import BoundedRandom
 
 
 DEFAULT_CONFIG_PATH = 'config.json'
+DEFAULT_PUBLICATION_SCHEDULE = {
+    "start_delta_sec": 1,
+    "end_delta_sec": 30
+}
 
 
 # Just use a memory job store as there is no requirement to make publishing specific numbers persistent.
@@ -17,26 +21,29 @@ scheduler = BackgroundScheduler()
 
 
 def on_publish(client, userdata, mid):
-    print(f"Published mesasge with id {mid}")
+    print(f"Published message with id {mid}")
 
 
-def get_job_datetime():
+def get_job_datetime(start_delta_sec: float, end_delta_sec: float):
     now = datetime.now()
     # Get a new random datetime between 1 and 30 seconds from now.
-    return BoundedRandom.datetime(now + timedelta(seconds=1), now + timedelta(seconds=30))
+    return BoundedRandom.datetime(now + timedelta(seconds=start_delta_sec), now + timedelta(seconds=end_delta_sec))
 
 
-def publish(client: RandomNumberClient):
+def schedule_job(client: RandomNumberClient, publish_schedule: dict):
+    scheduler.add_job(publish, 'date', run_date=get_job_datetime(**publish_schedule),kwargs={'client': client, "publish_schedule": publish_schedule})
+
+def publish(client: RandomNumberClient, publish_schedule: dict):
     print('Publishing and rescheduling...')
     client.publish()
-    scheduler.add_job(publish, 'date', run_date=get_job_datetime(),kwargs={'client': client})
+    schedule_job(client, publish_schedule)
 
 
-def start(**kwargs):
+def start(publish_schedule: dict = DEFAULT_PUBLICATION_SCHEDULE, **kwargs):
     client = RandomNumberClient(**kwargs, on_publish=on_publish)
 
     # Schedule initial job and start scheduler
-    scheduler.add_job(publish, 'date', run_date=get_job_datetime(),kwargs={'client': client})
+    schedule_job(client, publish_schedule)
     scheduler.start()
 
     # Using blocking loop since it is a simple implementation.
