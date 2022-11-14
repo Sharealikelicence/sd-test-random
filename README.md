@@ -19,15 +19,34 @@ This repo consists of 3 main sections:
 
 ### Docker
 
-**NOTE**: This is untested on a Windows host machine.
+**NOTE**: This is untested on a Windows host machine. For Windows, do not execute the `cp` steps. Either copy manually or use `xcopy`, etc.
 
 #### Prerequisites
 
 * [Docker Engine](https://docs.docker.com/engine/install) or [Docker Desktop](https://docs.docker.com/desktop/)
 
-#### Broker
+#### MQTT Broker
 
-See it's [README](./broker/README.md).
+See broker [README](./broker/README.md).
+
+#### MQTT Client(s)
+
+For publishing client:
+
+```shell
+cd mqtt_client
+DOCKER_BUILDKIT=1 docker build -t sd-client-random . && \
+  docker run \
+    -i \
+    --rm \
+    --net=host \
+    -e CONFIG_PATH=config.pub.sample.json \
+    sd-client-random
+```
+
+For subscribing client change `-e CONFIG_PATH=config.pub.sample.json \` to `-e CONFIG_PATH=config.sub.sample.json \`. Also, change `-i \` to `-it \` so that console output can be seen.
+
+See client [README](./mqtt_client/README.md) for any more details.
 
 #### Web App
 
@@ -44,7 +63,7 @@ DOCKER_BUILDKIT=1 docker build -t sd-random-webapp . && \
     sd-random-webapp
 ```
 
-For Windows, do not execute the `cp` step. Either copy manually or use `xcopy`, etc.
+Using a browser on the host machine, navigate to `http://localhost:3000`.
 
 ### Alternative Options
 

@@ -1,12 +1,8 @@
 {
   "host": "localhost",
   "port": 1883,
-  "client_id": "SAMPLE_ID",
-  "clean_session": null,
-  "userdata": null,
-  "protocol": 4,
-  "transport": "tcp",
-  "reconnect_on_failure": true,
+  "client_id": "PubRandom",
+  "clean_session": false,
   "publish_props": {
     "start_delta_sec": 1,
     "end_delta_sec": 30

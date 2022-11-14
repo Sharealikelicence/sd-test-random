@@ -7,7 +7,7 @@ MQTT client that publishes random numbers.
 ### Configuration
 
 Create a configuration file, based off of the `config.sample.json` file. By default, the client will look for a file named `config.json`. See the Docker and CLI sections bellow for more information.
-<!-- TODO: Add section regarding config options -->
+<!-- TODO: Add section regarding config options. Have ran out of time right now, must got out for dinner. -->
 
 ### Docker (Preferred)
 

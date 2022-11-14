@@ -1,7 +1,7 @@
 {
   "host": "localhost",
   "port": 1883,
-  "client_id": "SAMPLE_ID",
+  "client_id": "SubRandom",
   "clean_session": null,
   "userdata": null,
   "protocol": 4,
