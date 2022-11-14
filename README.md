@@ -56,7 +56,7 @@ cd ./web-app
 cp config.sample.json config.json
 DOCKER_BUILDKIT=1 docker build -t sd-random-webapp . && \
   docker run \
-    -i \
+    -d \
     --rm \
     --net=host \
     --name=sd-random-webapp \
@@ -64,6 +64,11 @@ DOCKER_BUILDKIT=1 docker build -t sd-random-webapp . && \
 ```
 
 Using a browser on the host machine, navigate to `http://localhost:3000`.
+
+**NOTE** The node does not like running with PID 1 (as in a docker container) hence why running in detached mode (`-d`) as it could not respond to signals like `Ctrl+C` or `SIGINT` . To stop type:
+```shell
+docker container stop sd-random-webapp
+```
 
 ### Alternative Options
 
