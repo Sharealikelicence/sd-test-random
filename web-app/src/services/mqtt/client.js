@@ -1,12 +1,12 @@
 import Paho from 'paho-mqtt';
-import { MakeRandomId } from '../../utils/random';
+import { makeRandomId } from '../../utils/random';
 
 
 class MqttClient {
   constructor({subscriptions, ...config}) {
     this.subscriptions = subscriptions;
     // If clientId isn't provided, just generate a random one.
-    this.client = new Paho.Client(config.hostname, Number(config.port), '', config?.clientId ?? MakeRandomId(23));
+    this.client = new Paho.Client(config.hostname, Number(config.port), '', config?.clientId ?? makeRandomId(23));
 
     // Set callback handlers
     this.client.onConnectionLost = this.onConnectionLost;

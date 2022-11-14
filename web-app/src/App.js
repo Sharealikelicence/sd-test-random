@@ -11,7 +11,7 @@ const mqttClient = new MqttClient(config.mqtt);
 const MAX_HEIGHT = 100
 
 /**
- * Creates a component that annimates an svg boxes height depending on a number that was published to an MQTT broker.
+ * Creates a component that animates the height of an svg box depending on a number that was published to an MQTT broker
  * @returns The React functional component.
  */
 function App() {
