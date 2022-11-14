@@ -3,7 +3,7 @@ import { MakeRandomId } from '../../utils/random';
 
 
 class MqttClient {
-  constructor(config, subscriptions) {
+  constructor({subscriptions, ...config}) {
     this.subscriptions = subscriptions;
     // If clientId isn't provided, just generate a random one.
     this.client = new Paho.Client(config.hostname, Number(config.port), '', config?.clientId ?? MakeRandomId(23));
