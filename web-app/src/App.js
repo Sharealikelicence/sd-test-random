@@ -17,7 +17,7 @@ const MAX_HEIGHT = 100
 function App() {
   const [currentNumber, setCurrentNumber] = useState(0);
 
-  // Set handler for receiving published messages
+  // Set handler for receiving published messages.
   mqttClient.client.onMessageArrived = (message) => {
     // Try to convert payload to a number, if it fails just use zero.
     const payload = Number(message.payloadString);
