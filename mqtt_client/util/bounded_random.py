@@ -6,6 +6,7 @@ from typing import Callable
 class BoundedRandom(object):
     """
     Generates random values between 2 set values for items that can be expressed in numeric form.
+    Generated values are within interval [n, m) by default.
     """
     # Using DI here as the random library is technically only pseudo-random so allows for better/different algorithms to be added if required.
     __generator_func: Callable[[float, float], float] = random.uniform
@@ -16,7 +17,7 @@ class BoundedRandom(object):
 
         Args:
             generator_func (Callable[[float,float], float], optional): A function that accepts a start and end number then returns a random number between the 2 bounds.
-            Defaults to `random.uniform` if not provided.
+            Defaults to `random.uniform` if not provided. Defaults to None.
         """
         if generator_func:
             self.__generator_func = generator_func
@@ -24,7 +25,7 @@ class BoundedRandom(object):
     @classmethod
     def datetime(self, start: datetime, end: datetime) -> datetime:
         """
-        Generates a random datatime between two dates.
+        Generates a random datetime between two dates.
 
         Args:
             start (datetime): Lower bound.

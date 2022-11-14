@@ -65,7 +65,7 @@ DOCKER_BUILDKIT=1 docker build -t sd-random-webapp . && \
 
 Using a browser on the host machine, navigate to `http://localhost:3000`.
 
-**NOTE** The node does not like running with PID 1 (as in a docker container) hence why running in detached mode (`-d`) as it could not respond to signals like `Ctrl+C` or `SIGINT` . To stop type:
+**NOTE** Node does not like running with PID 1 (as it does within a docker container). This is why it needs to be run in detached mode (`-d`) as it won't respond to signals like `Ctrl+C` or `SIGINT` otherwise. To stop type:
 ```shell
 docker container stop sd-random-webapp
 ```
