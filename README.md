@@ -1,6 +1,6 @@
 # sD Test
 
-Monorepo for random number generating MQTT test.
+Monorepo for random number generating MQTT test. This is a solution to the ST-FullStack problem.
 
 ## Notes/Assumptions
 
